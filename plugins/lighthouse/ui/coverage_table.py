@@ -1,6 +1,7 @@
 import os
 import time
 import string
+import inspect
 import logging
 from operator import itemgetter, attrgetter
 
@@ -1057,7 +1058,7 @@ class CoverageTableModel(QtCore.QAbstractTableModel):
             sorted_functions = sorted(
                 itervalues(self._visible_metadata),
                 key=attrgetter(sort_field),
-                reverse=sort_order
+                reverse=sort_order.value
             )
 
         # sort the table entries by a function coverage attribute
@@ -1065,7 +1066,7 @@ class CoverageTableModel(QtCore.QAbstractTableModel):
             sorted_functions = sorted(
                 itervalues(self._visible_coverage),
                 key=attrgetter(sort_field),
-                reverse=sort_order
+                reverse=sort_order.value
             )
 
             #
